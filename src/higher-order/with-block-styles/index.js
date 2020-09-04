@@ -29,6 +29,14 @@ const withBlockStyles = ( styleFunction, options = {} ) => createHigherOrderComp
 			mainClassName: '',
 		}
 
+		componentDidUpdate( prevProps ) {
+			// TODO:
+			console.log( 'old', { ...prevProps.attributes } )
+			console.log( 'new', { ...this.props.attributes } )
+			const difference = Object.keys( prevProps.attributes ).filter( k => this.props.attributes[ k ] !== prevProps.attributes[ k ] )
+			console.log( difference )
+		}
+
 		render() {
 			const newClassName = classnames( [
 				this.props.className,
